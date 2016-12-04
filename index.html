@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>My Neighborhood</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+
+    <body class="container">
+        <header class="row">
+            <h1 class="col-8">My favorite places in Puglia</h1>
+            <button class="button-menu col-4">&#9776;</button>
+        </header>
+        <main class="row">
+            <div id="mainmenu" class="col-3">
+                <input class="search-text" data-bind="textInput: filterText" type="text" placeholder="Find Location">
+                <ul class="place-list" data-bind="foreach: filteredLocation">
+                  <li><a class="place" data-bind="text: name, click: clickLocation"></a></li>
+                </ul>
+            </div>
+            <div id="map" class="col-9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d83998.91163207506!2d2.347059899999999!3d48.858858949999984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sfr!4v1425301582595" width="800" height="600" frameborder="0" style="border:0"></iframe>
+            </div>
+        </main>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/knockout-3.4.0.js"></script>
+        <script src="js/app.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOOsdKrOU8girBrOYbtKkf5U1boWWGDqs&v=3&callback=initMap">
+        </script>
+    </body>
+</html>

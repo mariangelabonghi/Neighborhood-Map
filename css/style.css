@@ -1,0 +1,226 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Indie Flower', cursive;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1500px;
+    width: 100%;
+    background-color: #0e0e0e;
+}
+
+#map {
+    height: 100%;
+}
+
+h1 {
+    text-align: left;
+    color: #8db8cb;
+}
+
+
+.search-text {
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    -moz-box-shadow: 0.2em 0.2em 0.7em rgba(0, 0, 0, 0.75) inset;
+    -webkit-box-shadow: 0.2em 0.2em 0.7em rgba(0, 0, 0, 0.75) inset;
+    box-shadow: 0.2em 0.2em 0.7em rgba(0, 0, 0, 0.75) inset;
+    height: 6%;
+    width: 90%;
+    font-size: 140%;
+    margin-bottom: 1.5em;
+    background-image: url("../img/lente.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    padding: 0 1em;
+    background-size: 15%;
+}
+
+.place-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.place {
+    color: #8db8cb;
+    cursor: pointer;
+    display: block;
+    font-size: 130%;
+    height: 4%;
+    margin: 0.8em 1em;
+}
+
+#mainmenu a:hover {
+    background:#666;
+}
+
+.button-menu {
+    display: none;
+    cursor:pointer;
+    margin:  1% 0;
+    color: #fff;
+    background:#333;
+    -webkit-border-radius: 10%;
+    -moz-border-radius: 10%;
+    border-radius: 10%;
+}
+
+.show{
+    display:block!important}
+
+.row {
+    width: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+/* First breakpoint*/
+@media screen and (max-width: 1550px) {
+
+    .container {
+        max-width: 1300px;
+    }
+
+    .place {
+        font-size: 110%;
+    }
+}
+
+/* Second breakpoint*/
+@media screen and (max-width: 1260px) {
+
+    .container {
+        max-width: 1000px;
+    }
+
+    .place {
+        font-size: 100%;
+        margin: 1.6em 0.8em;
+    }
+
+    .search-text {
+        font-size: 110%;
+    }
+}
+
+/* Third Breakpoint */
+@media screen and (max-width : 740px) {
+
+    h1 {
+        font-size: 130%;
+    }
+
+    .row {
+        flex-wrap: wrap;
+    }
+
+    .col-9 {
+        width: 100%;
+    }
+
+    .col-3 {
+        width: 100%;
+    }
+
+    .col-8 {
+        width: 80%;
+    }
+
+    .col-4 {
+        width: 10%;
+    }
+
+    #mainmenu {
+        display:none;
+    }
+
+    #mainmenu ul li {
+        float: none;
+    }
+
+    .button-menu {
+        display:block;
+    }
+
+    .search-text {
+        background-size: 9%;
+    }
+}
+
+ /* Breakpoint added for very small screen */
+@media screen and (max-width: 375px) {
+
+     h1 {
+        font-size: 100%;
+    }
+
+    .search-text {
+        background-size: 8%;
+        font-size: 80%;
+        height: 8%;
+    }
+
+    .button-menu {
+        margin:  4% 0;
+        width: 20%;
+    }
+}

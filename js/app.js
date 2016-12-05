@@ -37,6 +37,8 @@ function viewModel() {
     var self = this;
     //My locations in an observable array
     self.locationList = ko.observableArray(locationList);
+    var infoWindow = new google.maps.InfoWindow();
+
     //Instantiate marker
     self.locationList().forEach(function(loc) {
         var marker = new google.maps.Marker({
@@ -59,9 +61,7 @@ function viewModel() {
                     }).done(function(locationList) {
                         //here the content of the information window with wiki info
                         var contentString = '<h3>' + loc.name + '</h3>'+'<p>' + locationList[2][0] +'<a href=' + locationList[3][0] + ' target="blank"> Wikipedia</a></p>';
-                        var infoWindow = new google.maps.InfoWindow({
-                                        content: contentString
-                                });
+                        infoWindow.setContent(contentString);
                         loc.infoWindow = infoWindow;
                         //animation and window when click the marker
                         loc.marker.addListener('click', function () {
@@ -126,3 +126,7 @@ function viewModel() {
 $(".button-menu").click(function() {
 $("#mainmenu").toggleClass("show");
 });
+//when the script for google maps api gives an error...
+function mapError() {
+alert("error: google map is not available");
+};

@@ -37,7 +37,7 @@ function viewModel() {
     var self = this;
     //My locations in an observable array
     self.locationList = ko.observableArray(locationList);
-    var infoWindow = new google.maps.InfoWindow();
+
 
     //Instantiate marker
     self.locationList().forEach(function(loc) {
@@ -61,20 +61,7 @@ function viewModel() {
                     }).done(function(locationList) {
                         //here the content of the information window with wiki info
                         var contentString = '<h3>' + loc.name + '</h3>'+'<p>' + locationList[2][0] +'<a href=' + locationList[3][0] + ' target="blank"> Wikipedia</a></p>';
-                        infoWindow.setContent(contentString);
-                        loc.infoWindow = infoWindow;
-                        //animation and window when click the marker
-                        loc.marker.addListener('click', function () {
-                                        if (crrInfoWindow !== undefined) {
-                                                crrInfoWindow.close();
-                                        }
-                                        crrInfoWindow = loc.infoWindow;
-                                        loc.infoWindow.open(map, this);
-                                        loc.marker.setAnimation(google.maps.Animation.BOUNCE);
-                                        setTimeout(function () {
-                                                loc.marker.setAnimation(null);
-                                        }, 1000);
-                                });
+                        infoMarker(contentString, marker, map, loc);
                         }).fail(function(jqXHR, textStatus){
                         alert("ops failed to get wikipedia resources");
                     });
@@ -93,6 +80,24 @@ function viewModel() {
             loc.marker.setAnimation(null);
         }, 1000);
     };
+
+    function infoMarker(content, marker, map, loc ) {
+        var infoWindow = new google.maps.InfoWindow();
+        infoWindow.setContent(content);
+        loc.infoWindow = infoWindow;
+        //animation and window when click the marker
+        loc.marker.addListener('click', function () {
+            if (crrInfoWindow !== undefined) {
+                crrInfoWindow.close();
+            }
+            crrInfoWindow = loc.infoWindow;
+            loc.infoWindow.open(map, this);
+            loc.marker.setAnimation(google.maps.Animation.BOUNCE);
+            setTimeout(function () {
+                loc.marker.setAnimation(null);
+            }, 1000);
+        });
+    }
 
     self.filterText = ko.observable('');
     //animation for markers

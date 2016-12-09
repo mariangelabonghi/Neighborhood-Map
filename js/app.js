@@ -78,7 +78,7 @@ function viewModel() {
         }
         setTimeout(function() {
             loc.marker.setAnimation(null);
-        }, 1000);
+        }, 1400);
     };
 
     function infoMarker(content, marker, map, loc ) {
@@ -95,23 +95,11 @@ function viewModel() {
             loc.marker.setAnimation(google.maps.Animation.BOUNCE);
             setTimeout(function () {
                 loc.marker.setAnimation(null);
-            }, 1000);
+            }, 1400);
         });
     }
 
     self.filterText = ko.observable('');
-    //animation for markers
-    function toggleBounce(marker) {
-        if (marker.setAnimation() != null) {
-            marker.setAnimation(null);
-        } else
-        {
-            marker.setAnimation(google.maps.Animation.BOUNCE);
-            setTimeout(function() {
-            marker.setAnimation(null);
-            }, 600);
-        }
-    }
     //use arrayFilter of knockout to filter location and markers
     self.filteredLocation = ko.computed(function() {
         return ko.utils.arrayFilter(self.locationList(), function(item) {

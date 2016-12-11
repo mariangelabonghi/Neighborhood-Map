@@ -74,6 +74,7 @@ function viewModel() {
                 crrInfoWindow.close();
             }
             crrInfoWindow = loc.infoWindow;
+            map.panTo(loc.position);
             crrInfoWindow.open(map, loc.marker);
         }
         setTimeout(function() {
@@ -91,6 +92,7 @@ function viewModel() {
                 crrInfoWindow.close();
             }
             crrInfoWindow = loc.infoWindow;
+            map.panTo(loc.position);
             loc.infoWindow.open(map, this);
             loc.marker.setAnimation(google.maps.Animation.BOUNCE);
             setTimeout(function () {
@@ -117,7 +119,13 @@ function viewModel() {
 
 //show menu when click the button menu for small devices
 $(".button-menu").click(function() {
-$("#mainmenu").toggleClass("show");
+    $("#mainmenu").toggleClass("show");
+    $("col-9").css({
+        "width" : "30%"
+    });
+    $("col-3").css({
+        "width" : "70%"
+    });
 });
 //when the script for google maps api gives an error...
 function mapError() {

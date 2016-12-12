@@ -50,9 +50,6 @@ function viewModel() {
 
         loc.marker = marker;
         marker.setVisible(true);
-        self.markers = [];
-        self.markers.push(marker);
-        self.markers = ko.observableArray([]);
         //Use Ajax to retrieve wiki info
         $.ajax({
             url: wikiURL+loc.name,

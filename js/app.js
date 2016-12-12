@@ -54,15 +54,15 @@ function viewModel() {
         self.markers.push(marker);
         self.markers = ko.observableArray([]);
         //Use Ajax to retrieve wiki info
-            $.ajax({
-                    url: wikiURL+loc.name,
-                    dataType: 'jsonp',
+        $.ajax({
+            url: wikiURL+loc.name,
+            dataType: 'jsonp',
                     timeout: 1000
-                    }).done(function(locationList) {
-                        //here the content of the information window with wiki info
-                        var contentString = '<h3>' + loc.name + '</h3>'+'<p>' + locationList[2][0] +'<a href=' + locationList[3][0] + ' target="blank"> Wikipedia</a></p>';
-                        infoMarker(contentString, marker, map, loc);
-                        }).fail(function(jqXHR, textStatus){
+                }).done(function(locationList) {
+                    //here the content of the information window with wiki info
+                    var contentString = '<h3>' + loc.name + '</h3>'+'<p>' + locationList[2][0] +'<a href=' + locationList[3][0] + ' target="blank"> Wikipedia</a></p>';
+                    infoMarker(contentString, marker, map, loc);
+                    }).fail(function(jqXHR, textStatus){
                         alert("ops failed to get wikipedia resources");
                     });
     });
@@ -129,5 +129,5 @@ $(".button-menu").click(function() {
 });
 //when the script for google maps api gives an error...
 function mapError() {
-alert("error: google map is not available");
+    alert("error: google map is not available");
 };

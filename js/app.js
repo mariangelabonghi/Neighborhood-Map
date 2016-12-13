@@ -112,18 +112,18 @@ function viewModel() {
           return item.name.toLowerCase().indexOf(self.filterText().toLowerCase()) !== -1;
         });
       }, self);
-}
 
-//show menu when click the button menu for small devices
-$(".button-menu").click(function() {
-    $("#mainmenu").toggleClass("show");
-    $("col-9").css({
-        "width" : "30%"
-    });
-    $("col-3").css({
-        "width" : "70%"
-    });
-});
+    self.classApplied = ko.observable(10);
+
+    self.clickMenu = function() {
+        if (self.classApplied()>0) {
+            self.classApplied(-10);
+        }
+        else {
+        self.classApplied(10)
+        }
+    };
+}
 //when the script for google maps api gives an error...
 function mapError() {
     alert("error: google map is not available");

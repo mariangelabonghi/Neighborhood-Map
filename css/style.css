@@ -80,7 +80,8 @@ h1 {
 
 
 .show{
-    display:block!important}
+    display:block!important
+}
 
 
 .row {
@@ -190,9 +191,6 @@ h1 {
     h1 {
         font-size: 130%;
     }
-
-
-
 
 
     .col-9 {

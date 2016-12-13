@@ -10,10 +10,10 @@
     <body class="container">
         <header class="row">
             <h1 class="col-8">My favorite places in Puglia</h1>
-            <button class="button-menu col-4">&#9776;</button>
+            <button class="button-menu col-4" data-bind="click: clickMenu">&#9776;</button>
         </header>
         <main class="row">
-            <div id="mainmenu" class="col-3">
+            <div id="mainmenu" class="col-3" data-bind="css: {show: classApplied() < 0 }">
                 <input class="search-text" data-bind="textInput: filterText" type="text" placeholder="Find Location">
                 <ul class="place-list" data-bind="foreach: filteredLocation">
                   <li><a class="place" data-bind="text: name, click: clickLocation"></a></li>

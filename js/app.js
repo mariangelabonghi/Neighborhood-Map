@@ -104,10 +104,10 @@ function viewModel() {
         return ko.utils.arrayFilter(self.locationList(), function(item) {
           if (item.name.toLowerCase().indexOf(self.filterText().toLowerCase()) !== -1) {
             if(item.marker)
-              item.marker.setMap(map);
+              item.marker.setVisible(true);
           } else {
             if(item.marker)
-              item.marker.setMap(null);
+              item.marker.setVisible(false);
           }
           return item.name.toLowerCase().indexOf(self.filterText().toLowerCase()) !== -1;
         });
